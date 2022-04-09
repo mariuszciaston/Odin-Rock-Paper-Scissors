@@ -1,43 +1,61 @@
-// rock vs rock = DRAW
-// paper vs paper = DRAW
-// scissors vs scissors = DRAW
+// Player -------------------------------------------------
 
-// rock vs paper = paper = CPU
-// paper vs scissors = scissors = CPU
-// scissors vs rock = rock = CPU
+function playerPlay() {
+    console.log("Choose: Rock (1), Paper (2) or Scissors (3)");
+    let playerChoice = prompt("Choose: Rock (1), Paper (2) or Scissors (3)");
+    if (playerChoice.toLowerCase() === "rock" || parseInt(playerChoice) === 1) {
+        playerChoice = "Rock";
+    } else if (playerChoice.toLowerCase() === "paper" || parseInt(playerChoice) === 2) {
+        playerChoice = "Paper";
+    } else if (playerChoice.toLowerCase() === "scissors" || parseInt(playerChoice) === 3) {
+        playerChoice = "Scissors";
+    } else {
+        alert("Wrong selection, please try again");
+        playerPlay();
+    }
+    return playerChoice;
+}
 
-// rock vs scissors = rock = HUMAN
-// paper vs rock = paper = HUMAN
-// scissors vs paper = scissors = HUMAN
+const playerSelection = playerPlay();
+console.log('Your selection: ' + playerSelection);
+alert('Your selection: ' + playerSelection);
+
+// Computer -----------------------------------------------
 
 let options = ['Rock', 'Paper', 'Scissors'];
 
 function computerPlay() {
-    return choice = options[Math.floor(Math.random() * options.length)];
+    return options[Math.floor(Math.random() * options.length)];
 };
 
-// let playerSelection = prompt('Rock, paper or scissors ?');
-let playerSelection = 'Paper';
-// let computerSelection = computerPlay();
-let computerSelection = 'Paper';
+const computerSelection = computerPlay();
+console.log('Computer selection: ' + computerSelection);
+alert('Computer selection: ' + computerSelection);
 
-function playRound() {
+// Round --------------------------------------------------
+
+function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        console.log('It\'s a Draw.');
+        return ('It\'s a Draw.');
     } else if (playerSelection === 'Rock' && computerSelection === 'Paper') {
-        console.log('You Lose! Paper beats Rock');
+        return ('You Lose! Paper beats Rock');
     } else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
-        console.log('You Lose! Scissors beats Paper');
+        return ('You Lose! Scissors beats Paper');
     } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
-        console.log('You Lose! Rock beats Scissors');
+        return ('You Lose! Rock beats Scissors');
     } else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
-        console.log('You Win! Rock beats Scissors');
+        return ('You Win! Rock beats Scissors');
     } else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
-        console.log('You Win! Paper beats Rock');
+        return ('You Win! Paper beats Rock');
     } else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
-        console.log('You Win! Scissors beats Paper');
+        return ('You Win! Scissors beats Paper');
     } else
-        console.log('coś nie teges, wielkość liter?');
+        return ('Something went wrong.'); // Shows when user input is incorrect (rock, ROCK, RocK) ...  Can be deleted after playerSelection parameter is made case-insensitive
 }
 
-playRound();
+console.log(playRound(playerSelection, computerSelection));
+alert(playRound(playerSelection, computerSelection));
+
+// Game ---------------------------------------------------
+
+// Write a NEW function called game(). Call the playRound function inside of this one to play a 5 round game that keeps score and reports a winner or loser at the end.
