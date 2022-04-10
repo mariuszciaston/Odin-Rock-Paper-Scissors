@@ -18,6 +18,7 @@ while (playAgain === true) {
         } else if (playerChoice.toLowerCase() === "scissors" || parseInt(playerChoice) === 3) {
             playerChoice = "Scissors";
         } else {
+            console.log("Wrong selection, please try again");
             alert("Wrong selection, please try again");
             playerPlay();
         }
@@ -39,32 +40,40 @@ while (playAgain === true) {
             playerScore = 1;
             computerScore = 1;
             console.log('It\'s a Draw.');
+            alert('It\'s a Draw.');
         } else if (playerSelection === 'Rock' && computerSelection === 'Paper') {
             playerScore = 0;
             computerScore = 1;
             console.log('Paper beats Rock');
+            alert('Paper beats Rock');
         } else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
             playerScore = 0;
             computerScore = 1;
             console.log('Scissors beats Paper');
+            alert('Scissors beats Paper');
         } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
             playerScore = 0;
             computerScore = 1;
             console.log('Rock beats Scissors');
+            alert('Rock beats Scissors');
         } else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
             playerScore = 1;
             computerScore = 0;
             console.log('Rock beats Scissors');
+            alert('Rock beats Scissors');
         } else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
             playerScore = 1;
             computerScore = 0;
             console.log('Paper beats Rock');
+            alert('Paper beats Rock');
         } else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
             playerScore = 1;
             computerScore = 0;
             console.log('Scissors beats Paper');
+            alert('Scissors beats Paper');
         } else {
             console.log('Something went wrong.'); // Shows when user input is incorrect (rock, ROCK, RocK) ...  Can be deleted after playerSelection parameter is made case-insensitive
+            alert('Something went wrong.');
         }
         return ('Round score: ' + [playerScore + ':' + computerScore]);
     }
