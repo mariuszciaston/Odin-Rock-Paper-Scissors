@@ -1,61 +1,119 @@
-// Player -------------------------------------------------
+console.log('Let\'s play Rock, Paper, Scissors!');
+alert('Let\'s play Rock, Paper, Scissors!');
 
-function playerPlay() {
-    console.log("Choose: Rock (1), Paper (2) or Scissors (3)");
-    let playerChoice = prompt("Choose: Rock (1), Paper (2) or Scissors (3)");
-    if (playerChoice.toLowerCase() === "rock" || parseInt(playerChoice) === 1) {
-        playerChoice = "Rock";
-    } else if (playerChoice.toLowerCase() === "paper" || parseInt(playerChoice) === 2) {
-        playerChoice = "Paper";
-    } else if (playerChoice.toLowerCase() === "scissors" || parseInt(playerChoice) === 3) {
-        playerChoice = "Scissors";
-    } else {
-        alert("Wrong selection, please try again");
-        playerPlay();
+let playAgain = true;
+
+while (playAgain === true) {
+
+    // Player -------------------------------------------------
+
+    function playerPlay() {
+        console.log("Choose: Rock (1), Paper (2) or Scissors (3)");
+        playerChoice = prompt("Choose: Rock (1), Paper (2) or Scissors (3)");
+
+        if (playerChoice.toLowerCase() === "rock" || parseInt(playerChoice) === 1) {
+            playerChoice = "Rock";
+        } else if (playerChoice.toLowerCase() === "paper" || parseInt(playerChoice) === 2) {
+            playerChoice = "Paper";
+        } else if (playerChoice.toLowerCase() === "scissors" || parseInt(playerChoice) === 3) {
+            playerChoice = "Scissors";
+        } else {
+            alert("Wrong selection, please try again");
+            playerPlay();
+        }
+        return playerChoice;
     }
-    return playerChoice;
+
+    // Computer -----------------------------------------------
+
+    let options = ['Rock', 'Paper', 'Scissors'];
+
+    function computerPlay() {
+        return options[Math.floor(Math.random() * options.length)];
+    };
+
+    // Round --------------------------------------------------
+
+    function playRound(playerSelection, computerSelection) {
+        if (playerSelection === computerSelection) {
+            playerScore = 1;
+            computerScore = 1;
+            console.log('It\'s a Draw.');
+        } else if (playerSelection === 'Rock' && computerSelection === 'Paper') {
+            playerScore = 0;
+            computerScore = 1;
+            console.log('Paper beats Rock');
+        } else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
+            playerScore = 0;
+            computerScore = 1;
+            console.log('Scissors beats Paper');
+        } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
+            playerScore = 0;
+            computerScore = 1;
+            console.log('Rock beats Scissors');
+        } else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
+            playerScore = 1;
+            computerScore = 0;
+            console.log('Rock beats Scissors');
+        } else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
+            playerScore = 1;
+            computerScore = 0;
+            console.log('Paper beats Rock');
+        } else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
+            playerScore = 1;
+            computerScore = 0;
+            console.log('Scissors beats Paper');
+        } else {
+            console.log('Something went wrong.'); // Shows when user input is incorrect (rock, ROCK, RocK) ...  Can be deleted after playerSelection parameter is made case-insensitive
+        }
+        return ('Round score: ' + [playerScore + ':' + computerScore]);
+    }
+
+    // Game ---------------------------------------------------
+
+    let playerScore = 0;
+    let computerScore = 0;
+
+    let playerTotal = 0;
+    let computerTotal = 0;
+
+    game();
+
+    function game() {
+        for (let i = 1; i <= 5; i++) {
+
+            console.log('Round: ' + i);
+            alert('Round: ' + i);
+
+            const playerSelection = playerPlay();
+            console.log('Your selection: ' + playerSelection);
+            alert('Your selection: ' + playerSelection);
+
+            const computerSelection = computerPlay();
+            console.log('Computer selection: ' + computerSelection);
+            alert('Computer selection: ' + computerSelection);
+
+            const currentRound = playRound(playerSelection, computerSelection);
+            console.log(currentRound);
+            alert(currentRound);
+
+            playerTotal += playerScore;
+            computerTotal += computerScore;
+        }
+
+        console.log('Total score: ' + [playerTotal + ':' + computerTotal]);
+        alert('Total score: ' + [playerTotal + ':' + computerTotal]);
+
+        if (playerTotal > computerTotal) {
+            console.log('You win, congratulations!');
+            alert('You win, congratulations!');
+        } else if (playerTotal === computerTotal) {
+            console.log('Match draw.');
+            alert('Match draw.');
+        } else {
+            console.log('You lose, Skynet is coming!');
+            alert('You lose, Skynet is coming!');
+        }
+    }
+    playAgain = window.confirm('Do you want to play again?');
 }
-
-const playerSelection = playerPlay();
-console.log('Your selection: ' + playerSelection);
-alert('Your selection: ' + playerSelection);
-
-// Computer -----------------------------------------------
-
-let options = ['Rock', 'Paper', 'Scissors'];
-
-function computerPlay() {
-    return options[Math.floor(Math.random() * options.length)];
-};
-
-const computerSelection = computerPlay();
-console.log('Computer selection: ' + computerSelection);
-alert('Computer selection: ' + computerSelection);
-
-// Round --------------------------------------------------
-
-function playRound(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) {
-        return ('It\'s a Draw.');
-    } else if (playerSelection === 'Rock' && computerSelection === 'Paper') {
-        return ('You Lose! Paper beats Rock');
-    } else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
-        return ('You Lose! Scissors beats Paper');
-    } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
-        return ('You Lose! Rock beats Scissors');
-    } else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
-        return ('You Win! Rock beats Scissors');
-    } else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
-        return ('You Win! Paper beats Rock');
-    } else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
-        return ('You Win! Scissors beats Paper');
-    } else
-        return ('Something went wrong.'); // Shows when user input is incorrect (rock, ROCK, RocK) ...  Can be deleted after playerSelection parameter is made case-insensitive
-}
-
-console.log(playRound(playerSelection, computerSelection));
-alert(playRound(playerSelection, computerSelection));
-
-// Game ---------------------------------------------------
-
-// Write a NEW function called game(). Call the playRound function inside of this one to play a 5 round game that keeps score and reports a winner or loser at the end.
