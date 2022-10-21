@@ -16,101 +16,50 @@ let computerScore = 0;
 let playerTotal = 0;
 let computerTotal = 0;
 
-// const rock = document.querySelector('#rock');
-// const paper = document.querySelector('#paper');
-// const scissors = document.querySelector('#scissors');
+// buttons is a node list. It looks and acts much like an array.
+const buttons = document.querySelectorAll('button');
 
-rock.addEventListener('click', () => {
-    playerSelection = 'Rock';
-    console.log('Your selection: ' + playerSelection);
-    console.log('Computer selection: ' + computerSelection);
-    playRound(playerSelection, computerSelection);
-    console.log ('Round score: ' + [playerScore + ':' + computerScore]);
+// we use the .forEach method to iterate through each button
+buttons.forEach((button) => {
 
-    playerTotal += playerScore;
-    computerTotal += computerScore;
-    console.log('Total score: ' + [playerTotal + ':' + computerTotal]);
-
-    if (playerTotal == 5  && computerTotal < 5) {
-        console.log('You win, congratulations!');
-    }
-
-    else if (playerTotal == 5 && computerTotal == 5) {
-        console.log('Match draw.');
-    } 
-
-    else if (playerTotal < 5  && computerTotal == 5){
-        console.log('You lose, Skynet is coming!');
-    }
-
-
-    if (playerTotal == 5 || computerTotal == 5) {
-        playAgain = window.confirm('Do you want to play again?')
+// and for each one we add a 'click' listener
+button.addEventListener('click', () => {
     
-        playerScore = 0;
-        computerScore = 0;
-        playerTotal = 0;
-        computerTotal = 0;
-
-        if (playAgain == true){
-            console.log("Choose: Rock, Paper or Scissors");  
-        }
-    }
-
-});
-
-paper.addEventListener('click', () => {
-    playerSelection = 'Paper';
+playerSelection = button.id;
     console.log('Your selection: ' + playerSelection);
-    console.log('Computer selection: ' + computerSelection);
-    playRound(playerSelection, computerSelection);
-    console.log ('Round score: ' + [playerScore + ':' + computerScore]);
-
-    playerTotal += playerScore;
-    computerTotal += computerScore;
-    console.log('Total score: ' + [playerTotal + ':' + computerTotal]);
-
-    if (playerTotal == 5 || computerTotal == 5) {
-        playAgain = window.confirm('Do you want to play again?')
+        console.log('Computer selection: ' + computerSelection);
+        playRound(playerSelection, computerSelection);
+        console.log ('Round score: ' + [playerScore + ':' + computerScore]);
+        playerTotal += playerScore;
+        computerTotal += computerScore;
+        console.log('Total score: ' + [playerTotal + ':' + computerTotal]);
     
-        playerScore = 0;
-        computerScore = 0;
-        playerTotal = 0;
-        computerTotal = 0;
-
-        if (playAgain == true){
-            console.log("Choose: Rock, Paper or Scissors");  
+        if (playerTotal == 5  && computerTotal < 5) {
+            console.log('You win, congratulations!');
         }
-    }
-
-});
-
-scissors.addEventListener('click', () => {
-    playerSelection = 'Scissors';
-    console.log('Your selection: ' + playerSelection);
-    console.log('Computer selection: ' + computerSelection);
-    playRound(playerSelection, computerSelection);
-    console.log ('Round score: ' + [playerScore + ':' + computerScore]);
-
-    playerTotal += playerScore;
-    computerTotal += computerScore;
-    console.log('Total score: ' + [playerTotal + ':' + computerTotal]);
-
-    if (playerTotal == 5 || computerTotal == 5) {
-        playAgain = window.confirm('Do you want to play again?')
     
-        playerScore = 0;
-        computerScore = 0;
-        playerTotal = 0;
-        computerTotal = 0;
-
-        if (playAgain == true){
-            console.log("Choose: Rock, Paper or Scissors");  
+        else if (playerTotal == 5 && computerTotal == 5) {
+            console.log('Match draw.');
+        } 
+    
+        else if (playerTotal < 5  && computerTotal == 5){
+            console.log('You lose, Skynet is coming!');
         }
-    }
+    
+        if (playerTotal == 5 || computerTotal == 5) {
+            playAgain = window.confirm('Do you want to play again?')
+        
+            playerScore = 0;
+            computerScore = 0;
+            playerTotal = 0;
+            computerTotal = 0;
+    
+            if (playAgain == true){
+                console.log("Choose: Rock, Paper or Scissors");  
+            }
+        }
+  });
 });
-
-
 
 // Computer -----------------------------------------------
 let options = ['Rock', 'Paper', 'Scissors'];
