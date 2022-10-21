@@ -2,13 +2,18 @@
 
 // Info Board  --------------------------------------------------
 
-console.log('Let\'s play Rock, Paper, Scissors!');
-console.log("Choose: Rock, Paper or Scissors");
-// const info = document.querySelector('#info');
+// console.log('Let\'s play Rock, Paper, Scissors!');
+// console.log("Choose: Rock, Paper or Scissors");
+
+
+
+
 // const content1 = document.createElement('div');
 // content1.classList.add('play');
-// content1.textContent = 'Let\'s play Rock, Paper, Scissors!';
 // info.appendChild(content1);
+// const info1 = document.querySelector('#info1');
+
+info1.textContent = 'Choose:';
 
 // Player -------------------------------------------------
 let playerScore = 0;
@@ -22,41 +27,62 @@ const buttons = document.querySelectorAll('button');
 // we use the .forEach method to iterate through each button
 buttons.forEach((button) => {
 
-// and for each one we add a 'click' listener
-button.addEventListener('click', () => {
+    // and for each one we add a 'click' listener
+    button.addEventListener('click', () => {
     
 playerSelection = button.id;
-    console.log('Your selection: ' + playerSelection);
-        console.log('Computer selection: ' + computerSelection);
+
+    // console.log('Your selection: ' + playerSelection);
+    info1.textContent = ('Your selection: ' + playerSelection);
+
+        // console.log('Computer selection: ' + computerSelection);
+        info2.textContent = ('Computer selection: ' + computerSelection);
+
         playRound(playerSelection, computerSelection);
-        console.log ('Round score: ' + [playerScore + ':' + computerScore]);
+
+        // console.log ('Round score: ' + [playerScore + ':' + computerScore]);
+        info3.textContent = ('Round score: ' + [playerScore + ':' + computerScore]);
+
         playerTotal += playerScore;
         computerTotal += computerScore;
-        console.log('Total score: ' + [playerTotal + ':' + computerTotal]);
-    
+        // console.log('Total score: ' + [playerTotal + ':' + computerTotal]);
+        info4.textContent = ('Total score: ' + [playerTotal + ':' + computerTotal]);
+
         if (playerTotal == 5  && computerTotal < 5) {
-            console.log('You win, congratulations!');
+             console.log('You win, congratulations!');
+            info5.textContent = ('You win, congratulations!');
         }
     
-        else if (playerTotal == 5 && computerTotal == 5) {
-            console.log('Match draw.');
+         if (playerTotal == 5 && computerTotal == 5) {
+             console.log('Match draw.');
+            info5.textContent = ('Match draw.');
         } 
     
-        else if (playerTotal < 5  && computerTotal == 5){
-            console.log('You lose, Skynet is coming!');
+         if (playerTotal < 5  && computerTotal == 5){
+             console.log('You lose, Skynet is coming!');
+            info5.textContent = ('You lose, Skynet is coming!');
         }
-    
+
         if (playerTotal == 5 || computerTotal == 5) {
+            
             playAgain = window.confirm('Do you want to play again?')
-        
+
             playerScore = 0;
             computerScore = 0;
             playerTotal = 0;
             computerTotal = 0;
-    
-            if (playAgain == true){
-                console.log("Choose: Rock, Paper or Scissors");  
-            }
+            
+            info3.textContent = ('Round score: ' + [playerScore + ':' + computerScore]);
+            info4.textContent = ('Total score: ' + [playerTotal + ':' + computerTotal]);
+
+
+            info1.textContent = 'Choose:';
+             info2.textContent = '';
+
+            
+             info5.textContent = '';
+        
+
         }
   });
 });
@@ -77,6 +103,7 @@ function playRound(playerSelection, computerSelection) {
         playerScore = 1;
         computerScore = 1;
         console.log('It\'s a Draw.');
+        // info4.textContent = ('It\'s a Draw.');
         // alert('It\'s a Draw.');
     } else if (playerSelection === 'Rock' && computerSelection === 'Paper') {
         playerScore = 0;
