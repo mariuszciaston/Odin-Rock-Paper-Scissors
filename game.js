@@ -1,11 +1,4 @@
-const again = document.createElement("button");
-again.classList.add('again');
-again.textContent = 'Game Over. Play again?';
-restart.appendChild(again);
-
-restart.style.display = 'none';
-
-
+again.style.display = 'none';
 info1.textContent = 'Your selection:';
 info2.textContent = 'Computer selection:';
 
@@ -24,7 +17,7 @@ buttons.forEach((button) => {
     // and for each one we add a 'click' listener
     button.addEventListener('click', () => {
 
-        restart.style.display = 'none';
+        again.style.display = 'none';
         controls.style.display = 'block';
 
         playerSelection = button.id;
@@ -38,20 +31,20 @@ buttons.forEach((button) => {
 
         if (playerTotal == 5 && computerTotal < 5) {
             info6.textContent = ('You win, congratulations!');
-            restart.style.display = 'block';
+            again.style.display = 'block';
             controls.style.display = 'none';
 
         }
 
         if (playerTotal == 5 && computerTotal == 5) {
             info6.textContent = ('Match draw.');
-            restart.style.display = 'block';
+            again.style.display = 'block';
             controls.style.display = 'none';
         }
 
         if (playerTotal < 5 && computerTotal == 5) {
             info6.textContent = ('You lose, Skynet is coming!');
-            restart.style.display = 'block';
+            again.style.display = 'block';
             controls.style.display = 'none';
         }
 
