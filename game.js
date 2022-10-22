@@ -1,4 +1,5 @@
 again.style.display = 'none';
+yt.style.display = 'none';
 info1.textContent = 'Your selection:';
 info2.textContent = 'Computer selection:';
 
@@ -19,7 +20,16 @@ buttons.forEach((button) => {
 
         again.style.display = 'none';
         controls.style.display = 'block';
+        yt.style.display = 'none';
 
+        // Computer -----------------------------------------------
+        let options = ['Rock', 'Paper', 'Scissors'];
+
+        function computerPlay() {
+            return options[Math.floor(Math.random() * options.length)];
+        };
+
+        let computerSelection = computerPlay();
         playerSelection = button.id;
         info1.textContent = ('Your selection: ' + playerSelection);
         info2.textContent = ('Computer selection: ' + computerSelection);
@@ -33,7 +43,7 @@ buttons.forEach((button) => {
             info6.textContent = ('You win, congratulations!');
             again.style.display = 'block';
             controls.style.display = 'none';
-
+            yt.style.display = 'block';
         }
 
         if (playerTotal == 5 && computerTotal == 5) {
@@ -49,9 +59,6 @@ buttons.forEach((button) => {
         }
 
         if (playerTotal == 6 || computerTotal == 6) {
-          
-            // document.getElementByClassName('again').style.display = 'block';
-            // playAgain = window.confirm('Do you want to play again?');
             playerScore = 0;
             computerScore = 0;
             playerTotal = 0;
@@ -68,15 +75,6 @@ buttons.forEach((button) => {
         }
     });
 });
-
-// Computer -----------------------------------------------
-let options = ['Rock', 'Paper', 'Scissors'];
-
-function computerPlay() {
-    return options[Math.floor(Math.random() * options.length)];
-};
-
-let computerSelection = computerPlay();
 
 // Round --------------------------------------------------
 function playRound(playerSelection, computerSelection) {
@@ -109,7 +107,6 @@ function playRound(playerSelection, computerSelection) {
         computerScore = 0;
         info5.textContent = 'Scissors beats Paper';
     } else {
-        // info5.textContent = 'Something went wrong.';
         info5.textContent = '\xa0';
     }
 }
