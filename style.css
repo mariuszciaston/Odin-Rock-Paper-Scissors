@@ -1,0 +1,94 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background-color: white;
+    margin: 0px;
+    font-family: Inconsolata;
+    font-size: 16px;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    /* max-width: 320px; */
+}
+
+
+
+#title {
+    font-size: 29px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+
+}
+
+#controls {
+    display: flex; 
+    justify-content: space-between;
+}
+
+button {
+    display: flex;
+    flex: 1;
+    /* width: 100%; */
+    font-size: 70px;
+    background-color: silver;
+    border-radius: 10px;
+    border: 0px solid black;
+    outline: 0px solid black;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+
+   /* margin: 16px; */
+    /* max-width: 100px; */
+
+}
+#Rock > span, #Paper > span, #Scissors > span{
+    margin:auto;
+    padding-bottom: 10px;
+    
+}
+
+button:hover {
+    /* outline: 1px solid black; */
+    z-index: 1;
+    /* transform: scale(0.75); */
+    background-color: grey;
+}
+
+
+
+
+
+
+
+
+
+
+
+#footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0 10px 0;
+}
+
+.fa-github {
+    color: black;
+    opacity: 75%;
+    transition: transform 0.3s ease-in-out;
+    margin-left: 4px;
+}
+
+.fa-github:hover {
+    opacity: 100%;
+    transform: rotate(360deg) scale(1.2);
+}

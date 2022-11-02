@@ -5,29 +5,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock paper scissors</title>
-    <script src="game.js" defer></script>
+    <title>Rock Paper Scissors</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">    <script src="game.js" defer></script>
+    <script src="https://kit.fontawesome.com/4c536a6bd5.js" defer></script>
 </head>
 
 <body>
-    <div id="lets">Let's play Rock, Paper, Scissors!</div>
-    <br>
-    <div id="info1"></div>
-    <div id="controls">
-        <button id="Rock">Rock</button>
-        <button id="Paper">Paper</button>
-        <button id="Scissors">Scissors</button>
+    <div id="container">
+        <header id="header">
+            <div id="title">Let's play: Rock, Paper, Scissors!</div>
+        </header>
+        <main id="main">
+            <div id="controls">
+                <button id="Rock"><span>✊</span></button>
+                <button id="Paper"><span>✋</span></button>
+                <button id="Scissors"><span>✌️</span></button>
+            </div>
+            <div id="info1"></div>
+            <div id="info2"></div>
+            <button id="again">Game Over. Play again?</button>
+            <br>
+            <div id="info5"></div>
+            <br>
+            <div id="info3"></div>
+            <div id="info4"></div>
+            <br>
+            <div id="info6"></div>
+            <iframe id="yt" width="560" height="315" src="https://www.youtube.com/embed/tvbyY7oMT2E?start=21" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
     </div>
-    <button id="again">Game Over. Play again?</button>
-    <div id="info2"></div>
-    <br>
-    <div id="info5"></div>
-    <br>
-    <div id="info3"></div>
-    <div id="info4"></div>
-    <br>
-    <div id="info6"></div>
-    <iframe id="yt" width="560" height="315" src="https://www.youtube.com/embed/tvbyY7oMT2E?start=21" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <footer id="footer">Built with ❤️ and 🍕 <br>Mariusz Ciastoń 2022<a href="https://github.com/mariuszciaston/" target="_blank"> <i class="fab fa-github fa-2x" aria-hidden="true"></i></a></footer>
 </body>
 
 </html>
