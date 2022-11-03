@@ -1,5 +1,5 @@
-again.style.display = 'none';
-yt.style.display = 'none';
+// again.style.display = 'none';
+// yt.style.display = 'none';
 info1.textContent = 'Your selection:';
 info2.textContent = 'Computer selection:';
 
@@ -18,9 +18,9 @@ buttons.forEach((button) => {
     // and for each one we add a 'click' listener
     button.addEventListener('click', () => {
 
-        again.style.display = 'none';
-        controls.style.display = 'block';
-        yt.style.display = 'none';
+        // again.style.display = 'none';
+        // controls.style.display = 'block';
+        // yt.style.display = 'none';
 
         // Computer -----------------------------------------------
         let options = ['Rock', 'Paper', 'Scissors'];
@@ -41,21 +41,21 @@ buttons.forEach((button) => {
 
         if (playerTotal == 5 && computerTotal < 5) {
             info6.textContent = ('You win, congratulations!');
-            again.style.display = 'block';
-            controls.style.display = 'none';
-            yt.style.display = 'block';
+            // again.style.display = 'block';
+            // controls.style.display = 'none';
+            // yt.style.display = 'block';
         }
 
         if (playerTotal == 5 && computerTotal == 5) {
             info6.textContent = ('Match draw.');
-            again.style.display = 'block';
-            controls.style.display = 'none';
+            // again.style.display = 'block';
+            // controls.style.display = 'none';
         }
 
         if (playerTotal < 5 && computerTotal == 5) {
             info6.textContent = ('You lose, Skynet is coming!');
-            again.style.display = 'block';
-            controls.style.display = 'none';
+            // again.style.display = 'block';
+            // controls.style.display = 'none';
         }
 
         if (playerTotal == 6 || computerTotal == 6) {
