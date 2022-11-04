@@ -1,7 +1,8 @@
 // again.style.display = 'none';
 // yt.style.display = 'none';
-info1.textContent = 'Your selection:';
-info2.textContent = 'Computer selection:';
+info1.textContent = '?';
+info2.textContent = '?';
+info5.textContent = 'vs';
 
 // Player -------------------------------------------------
 let playerScore = 0;
@@ -31,13 +32,23 @@ buttons.forEach((button) => {
 
         let computerSelection = computerPlay();
         playerSelection = button.id;
-        info1.textContent = ('Your selection: ' + playerSelection);
-        info2.textContent = ('Computer selection: ' + computerSelection);
+        info1.textContent = (playerSelection);
+        info2.textContent = (computerSelection);
         playRound(playerSelection, computerSelection);
         info3.textContent = ('Round score: ' + [playerScore + ':' + computerScore]);
+        
         playerTotal += playerScore;
         computerTotal += computerScore;
+        
+        
         info4.textContent = ('Total score: ' + [playerTotal + ':' + computerTotal]);
+        
+        info3a.textContent = ('Player: ' + playerTotal );
+        info3b.textContent = ('Computer: ' + computerTotal);
+
+
+
+
 
         if (playerTotal == 5 && computerTotal < 5) {
             info6.textContent = ('You win, congratulations!');
@@ -64,13 +75,16 @@ buttons.forEach((button) => {
             playerTotal = 0;
             computerTotal = 0;
 
-            info1.textContent = 'Your selection:';
-            info2.textContent = 'Computer selection:';
+            info1.textContent = '?';
+            info2.textContent = '?';
 
             info3.textContent = ('Round score: ' + [playerScore + ':' + computerScore]);
+
+
+
             info4.textContent = ('Total score: ' + [playerTotal + ':' + computerTotal]);
 
-            info5.textContent = '\xa0';
+            info5.textContent = 'vs';
             info6.textContent = '';
         }
     });
@@ -81,19 +95,19 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         playerScore = 1;
         computerScore = 1;
-        info5.textContent = 'It\'s a Draw.';
+        info5.textContent = 'It\'s a Draw';
     } else if (playerSelection === 'Rock' && computerSelection === 'Paper') {
         playerScore = 0;
         computerScore = 1;
-        info5.textContent = 'Paper beats Rock';
+        info5.textContent = 'Rock lose to Paper';
     } else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
         playerScore = 0;
         computerScore = 1;
-        info5.textContent = 'Scissors beats Paper';
+        info5.textContent = 'Paper lose to Scissors';
     } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
         playerScore = 0;
         computerScore = 1;
-        info5.textContent = 'Rock beats Scissors';
+        info5.textContent = 'Scissors lose to Rock';
     } else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
         playerScore = 1;
         computerScore = 0;
@@ -107,6 +121,6 @@ function playRound(playerSelection, computerSelection) {
         computerScore = 0;
         info5.textContent = 'Scissors beats Paper';
     } else {
-        info5.textContent = '\xa0';
+        info5.textContent = 'vs';
     }
 }

@@ -14,7 +14,7 @@ body {
     display: flex;
    flex-direction: column;
     margin: auto;
-    /* max-width: 320px; */
+    max-width: 768px;
 }
 
 #title {
@@ -39,10 +39,13 @@ body {
    /* max-width: 100px; */
 }
 
-#player { background-color: red;} 
-#vs{ background-color: green;} 
+#player { background-color: red; color:white;} 
+
+#vs{ background-color: green; color:white;
+flex-direction: column;} 
+
 #computer {
-    background-color: blue;
+    background-color: blue; color:white;
 }
 
 #controls {
