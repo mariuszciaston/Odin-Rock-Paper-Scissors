@@ -1,126 +1,131 @@
-// again.style.display = 'none';
-// yt.style.display = 'none';
-info1.textContent = '?';
-info2.textContent = '?';
-info5.textContent = 'vs';
+// START
 
-// Player -------------------------------------------------
+playAgain.style.display = 'none';
+
 let playerScore = 0;
 let computerScore = 0;
 let playerTotal = 0;
 let computerTotal = 0;
 
-// buttons is a node list. It looks and acts much like an array.
-const buttons = document.querySelectorAll('button');
 
-// we use the .forEach method to iterate through each button
+playerChoice.textContent = '?';
+computerChoice.textContent = '?';
+versusBox.textContent = 'vs';
+
+// PLAYER
+const buttons = document.querySelectorAll('.btn');
 buttons.forEach((button) => {
-
-    // and for each one we add a 'click' listener
     button.addEventListener('click', () => {
 
-        // again.style.display = 'none';
-        // controls.style.display = 'block';
-        // yt.style.display = 'none';
+        let playerSelection = button.id;
 
-        // Computer -----------------------------------------------
+        if (playerSelection == "Rock") {
+            playerChoice.textContent = "✊";
+        }
+        if (playerSelection == "Paper") {
+            playerChoice.textContent = "✋";
+        }
+        if (playerSelection == "Scissors") {
+            playerChoice.textContent = "✌️";
+        }
+
+        // COMPUTER 
         let options = ['Rock', 'Paper', 'Scissors'];
+        let computerSelection = computerPlay();
 
         function computerPlay() {
             return options[Math.floor(Math.random() * options.length)];
         };
 
-        let computerSelection = computerPlay();
-        playerSelection = button.id;
-        info1.textContent = (playerSelection);
-        info2.textContent = (computerSelection);
+        if (computerSelection == "Rock") {
+            computerChoice.textContent = "✊";
+        }
+        if (computerSelection == "Paper") {
+            computerChoice.textContent = "✋";
+        }
+        if (computerSelection == "Scissors") {
+            computerChoice.textContent = "✌️";
+        }
+
+        // ROUND
         playRound(playerSelection, computerSelection);
-        info3.textContent = ('Round score: ' + [playerScore + ':' + computerScore]);
-        
+
+        function playRound(playerSelection, computerSelection) {
+            if (playerSelection === computerSelection) {
+                playerScore = 1;
+                computerScore = 1;
+                versusBox.textContent = 'It\'s a Draw';
+            } else if (playerSelection === 'Rock' && computerSelection === 'Paper') {
+                playerScore = 0;
+                computerScore = 1;
+                versusBox.textContent = 'Rock lose to Paper';
+            } else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
+                playerScore = 0;
+                computerScore = 1;
+                versusBox.textContent = 'Paper lose to Scissors';
+            } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
+                playerScore = 0;
+                computerScore = 1;
+                versusBox.textContent = 'Scissors lose to Rock';
+            } else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
+                playerScore = 1;
+                computerScore = 0;
+                versusBox.textContent = 'Rock beats Scissors';
+            } else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
+                playerScore = 1;
+                computerScore = 0;
+                versusBox.textContent = 'Paper beats Rock';
+            } else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
+                playerScore = 1;
+                computerScore = 0;
+                versusBox.textContent = 'Scissors beats Paper';
+            } else {
+                versusBox.textContent = 'ERROR';
+            }
+        }
+
+        // if(playerTotal < 5 || computerTotal < 5){
         playerTotal += playerScore;
         computerTotal += computerScore;
-        
-        
-        info4.textContent = ('Total score: ' + [playerTotal + ':' + computerTotal]);
-        
-        info3a.textContent = ('Player: ' + playerTotal );
-        info3b.textContent = ('Computer: ' + computerTotal);
+        // }
+
+
+        playerPoints.textContent = ('Player: ' + playerTotal);
+        computerPoints.textContent = ('Computer: ' + computerTotal);
 
 
 
-
-
+        // VICTORY
         if (playerTotal == 5 && computerTotal < 5) {
-            info6.textContent = ('You win, congratulations!');
-            // again.style.display = 'block';
-            // controls.style.display = 'none';
-            // yt.style.display = 'block';
+            endBox.textContent = ('You win, congratulations!');
+            playAgain.style.display = 'block';
         }
-
         if (playerTotal == 5 && computerTotal == 5) {
-            info6.textContent = ('Match draw.');
-            // again.style.display = 'block';
-            // controls.style.display = 'none';
+            endBox.textContent = ('Match draw.');
+            playAgain.style.display = 'block';
         }
-
         if (playerTotal < 5 && computerTotal == 5) {
-            info6.textContent = ('You lose, Skynet is coming!');
-            // again.style.display = 'block';
-            // controls.style.display = 'none';
+            endBox.textContent = ('You lose, Skynet is coming!');
+            playAgain.style.display = 'block';
         }
 
-        if (playerTotal == 6 || computerTotal == 6) {
-            playerScore = 0;
-            computerScore = 0;
-            playerTotal = 0;
-            computerTotal = 0;
 
-            info1.textContent = '?';
-            info2.textContent = '?';
-
-            info3.textContent = ('Round score: ' + [playerScore + ':' + computerScore]);
-
-
-
-            info4.textContent = ('Total score: ' + [playerTotal + ':' + computerTotal]);
-
-            info5.textContent = 'vs';
-            info6.textContent = '';
-        }
     });
+
 });
 
-// Round --------------------------------------------------
-function playRound(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) {
-        playerScore = 1;
-        computerScore = 1;
-        info5.textContent = 'It\'s a Draw';
-    } else if (playerSelection === 'Rock' && computerSelection === 'Paper') {
-        playerScore = 0;
-        computerScore = 1;
-        info5.textContent = 'Rock lose to Paper';
-    } else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
-        playerScore = 0;
-        computerScore = 1;
-        info5.textContent = 'Paper lose to Scissors';
-    } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
-        playerScore = 0;
-        computerScore = 1;
-        info5.textContent = 'Scissors lose to Rock';
-    } else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
-        playerScore = 1;
-        computerScore = 0;
-        info5.textContent = 'Rock beats Scissors';
-    } else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
-        playerScore = 1;
-        computerScore = 0;
-        info5.textContent = 'Paper beats Rock';
-    } else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
-        playerScore = 1;
-        computerScore = 0;
-        info5.textContent = 'Scissors beats Paper';
-    } else {
-        info5.textContent = 'vs';
-    }
-}
+// RESTART
+playAgain.addEventListener('click', () => {
+    playerScore = 0;
+    computerScore = 0;
+    playerTotal = 0;
+    computerTotal = 0;
+    // endBox.textContent = ('RESTART');
+
+    playerPoints.textContent = ('Player: ' + playerTotal);
+    computerPoints.textContent = ('Computer: ' + computerTotal);
+
+    playerChoice.textContent = '?';
+    computerChoice.textContent = '?';
+    versusBox.textContent = 'vs';
+});

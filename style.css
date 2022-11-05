@@ -37,20 +37,22 @@ body {
    justify-content: center; 
    align-items: center;
    /* max-width: 100px; */
+   flex-direction: column
 }
 
-#player { background-color: red; color:white;} 
+#player { background-color: blue; color:white;} 
 
 #vs{ background-color: green; color:white;
 flex-direction: column;} 
 
 #computer {
-    background-color: blue; color:white;
+    background-color: red; color:white;
 }
 
 #controls {
     display: flex; 
     justify-content: space-between;
+   
 }
 
 #Rock, #Paper, #Scissors {
@@ -61,9 +63,9 @@ flex-direction: column;}
     justify-content: center; 
     align-items: center;
 
-/* max-width: 100px; */
+    font-size: 96px;
 
-    /* font-size: 48px; */
+/* max-width: 100px; */
     /* border-radius: 10px;
     outline: 0px solid black; */
     /* overflow: hidden; */
