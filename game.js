@@ -1,6 +1,6 @@
 // START
 
-playAgain.style.display = 'none';
+endOverlay.style.display = 'none';
 
 let playerScore = 0;
 let computerScore = 0;
@@ -16,6 +16,8 @@ versusBox.textContent = 'vs';
 const buttons = document.querySelectorAll('.btn');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
+
+        if (playerTotal < 5 && computerTotal < 5) {
 
         let playerSelection = button.id;
 
@@ -84,9 +86,14 @@ buttons.forEach((button) => {
             }
         }
 
-        // if(playerTotal < 5 || computerTotal < 5){
+        
         playerTotal += playerScore;
         computerTotal += computerScore;
+    }
+
+
+
+        // if(playerTotal < 5 || computerTotal < 5){
         // }
 
 
@@ -97,16 +104,16 @@ buttons.forEach((button) => {
 
         // VICTORY
         if (playerTotal == 5 && computerTotal < 5) {
-            endBox.textContent = ('You win, congratulations!');
-            playAgain.style.display = 'block';
+            whoWon.textContent = ('You win, congratulations!');
+            endOverlay.style.display = 'block';
         }
         if (playerTotal == 5 && computerTotal == 5) {
-            endBox.textContent = ('Match draw.');
-            playAgain.style.display = 'block';
+            whoWon.textContent = ('Match draw.');
+            endOverlay.style.display = 'block';
         }
         if (playerTotal < 5 && computerTotal == 5) {
-            endBox.textContent = ('You lose, Skynet is coming!');
-            playAgain.style.display = 'block';
+            whoWon.textContent = ('You lose, Skynet is coming!');
+            endOverlay.style.display = 'block';
         }
 
 
@@ -128,4 +135,8 @@ playAgain.addEventListener('click', () => {
     playerChoice.textContent = '?';
     computerChoice.textContent = '?';
     versusBox.textContent = 'vs';
+
+    endOverlay.style.display = 'none';
 });
+
+
