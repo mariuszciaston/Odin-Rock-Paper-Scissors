@@ -12,9 +12,9 @@ function start() {
     playerPoints.textContent = ('Player: ' + playerTotal);
     computerPoints.textContent = ('Computer: ' + computerTotal);
 
-    playerChoice.textContent = '?';
-    computerChoice.textContent = '?';
-     versusBox.textContent = 'Score 5 points to win';
+    playerChoice.textContent = '❔';
+    computerChoice.textContent = '❔';
+    infoBox.textContent = 'Score 5 points to win';
 }
 playAgain.addEventListener('click', start);
 
@@ -62,33 +62,33 @@ buttons.forEach((button) => {
                 if (playerSelection === computerSelection) {
                     playerScore = 1;
                     computerScore = 1;
-                    versusBox.textContent = 'It\'s a Draw';
+                    infoBox.textContent = 'It\'s a Draw';
                 } else if (playerSelection === 'Rock' && computerSelection === 'Paper') {
                     playerScore = 0;
                     computerScore = 1;
-                    versusBox.textContent = 'Rock lose to Paper';
+                    infoBox.textContent = 'Rock lose to Paper';
                 } else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
                     playerScore = 0;
                     computerScore = 1;
-                    versusBox.textContent = 'Paper lose to Scissors';
+                    infoBox.textContent = 'Paper lose to Scissors';
                 } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
                     playerScore = 0;
                     computerScore = 1;
-                    versusBox.textContent = 'Scissors lose to Rock';
+                    infoBox.textContent = 'Scissors lose to Rock';
                 } else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
                     playerScore = 1;
                     computerScore = 0;
-                    versusBox.textContent = 'Rock beats Scissors';
+                    infoBox.textContent = 'Rock beats Scissors';
                 } else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
                     playerScore = 1;
                     computerScore = 0;
-                    versusBox.textContent = 'Paper beats Rock';
+                    infoBox.textContent = 'Paper beats Rock';
                 } else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
                     playerScore = 1;
                     computerScore = 0;
-                    versusBox.textContent = 'Scissors beats Paper';
+                    infoBox.textContent = 'Scissors beats Paper';
                 } else {
-                    versusBox.textContent = 'ERROR';
+                    infoBox.textContent = 'ERROR';
                 }
             }
 

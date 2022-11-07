@@ -1,3 +1,9 @@
+/* *{
+    color:black !important;
+    background-color: white !important;
+    outline: 1px solid black !important;
+} */
+
 html {
     position: relative;
     min-height: 100%;
@@ -5,10 +11,10 @@ html {
 
 body {
     /* background-color: white; */
+    /* background-color: grey; */
     /* background-color: rgb(255, 200, 61); */
     /* background-color: rgb(212, 140, 61); */
-
-    background-color: grey;
+    background-color: silver;
 
     margin: 0px;
     font-family: Inconsolata;
@@ -19,95 +25,123 @@ body {
     display: flex;
     flex-direction: column;
     margin: auto;
-    max-width: 768px;
-    margin-bottom: 60px;
+    /* max-width: 360px; */
+    margin-bottom: 58px;
 }
 
 #title {
-    font-size: 29px;
-    font-weight: 600;
     display: flex;
     justify-content: center;
     text-align: center;
-    /* background: grey; */
-    padding-top: 20px;
-    padding-bottom: 20px;
-    color:black;
+    color: black;
     background-color: grey;
-   background-color: rgb(255, 200, 61);
+    background-color: rgb(255, 200, 61);
 }
 
-#versusBox{
+h1 {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+#infoBox {
     display: flex;
     justify-content: center;
-    background-color: silver;
-
+    font-size: 16px;
+    font-weight: 600;
+    padding: 24px 0;
+    /* background-color: silver; */
 }
+
 
 #versus {
     display: flex;
     justify-content: space-evenly;
+    padding: 32px 0;
+    background-color: white;
+
 }
 
-#result {
-    display: flex;
-    justify-content:space-evenly;
-    
-}
-
-#playerPoints{
-    display: flex;
-    flex: 1;
-    background-color:brown;
-    justify-content: center;
-}
-
-#computerPoints{
-    display: flex;
-    flex:1;
-    background-color:blueviolet;
-    justify-content: center;
-}
-
-
-#player,
-#vs,
-#computer {
-    display: flex;
-    flex: 1;
-    aspect-ratio: 1/1;
-    justify-content: center;
-    align-items: center;
-    /* max-width: 100px; */
-    flex-direction: column
-}
-
-#player {
-    background-color: blue;
-    color: white;
-}
-
-#vs {
+#playerBox,
+#computerBox {
+    width: 100px;
     /* background-color: green; */
-    color: white;
-    flex-direction: column;
 }
 
-#computer {
-    background-color: red;
-    color: white;
+
+
+
+
+#playerChoice,
+#computerChoice,
+#Rock,
+#Paper,
+#Scissors {
+    /* margin:auto; */
+    padding-bottom: 8px;
 }
+
+@keyframes zoom {
+    from {
+        transform: scale(1.5);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+#playerChoice,
+#computerChoice {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.zoom {
+    animation-name: zoom;
+    animation-duration: 1s;
+}
+
+#playerPoints,
+#computerPoints {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#playerPoints {
+    color: blue;
+}
+
+#computerPoints {
+    color: red;
+}
+
+
+
+/* --------------------------------------------------- */
 
 #controls {
     display: flex;
     justify-content: space-evenly;
 
+    /* background-color: grey !important; */
+
+    padding: 32px 0;
+
 }
 
-#playerChoice, #computerChoice{
+#playerChoice,
+#computerChoice,
+#Rock,
+#Paper,
+#Scissors {
     font-size: 64px;
-    
-   
+
+
 }
 
 #Rock,
@@ -119,26 +153,28 @@ body {
     border: 0px solid black;
     justify-content: center;
     align-items: center;
-
-    font-size: 64px;
-
     max-width: 100px;
-     border-radius: 10px;
+    border-radius: 10px;
     /* outline: 1px solid black;  */
     /* overflow: hidden; */
 
-    background-color: grey;
+    
+    /* margin: 16px; */
+    /* background-color: white; */
+    background-color: silver;
+   
 
 }
 
 #Rock:hover,
 #Paper:hover,
-#Scissors:hover{
-    background-color: silver;
+#Scissors:hover {
+    /* background-color: silver; */
     //background-color: rgb(255, 200, 61);
 
-     /* background-color: rgb(212, 140, 61); */
+    /* background-color: rgb(212, 140, 61); */
     cursor: pointer;
+    background-color: grey;
 }
 
 
@@ -156,11 +192,12 @@ body {
 } */
 
 
-/* #Rock > span, #Paper > span, #Scissors > span{
-    margin:auto;
-    padding-bottom: 10px;
-    
-} */
+
+
+
+
+
+
 
 
 
@@ -174,8 +211,8 @@ body {
     bottom: 0;
 
 
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(4px);
 
 
     /* transition: 2s backdrop-filter linear, 2s -webkit-filter linear; */
@@ -185,12 +222,12 @@ body {
 
 #endBox {
     position: relative;
-    background-color: grey;
-    color: white;
-    
+    background-color: white;
+    color: black;
+
     width: 240px;
     height: 120px;
-    
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -199,10 +236,10 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
-         border-radius: 10px;
-        /* outline: 1px solid black; */
-     
+
+    border-radius: 10px;
+    /* outline: 1px solid black; */
+
 }
 
 
@@ -226,18 +263,9 @@ body {
     color: black;
     opacity: 75%;
     transition: transform 0.3s ease-in-out;
-    margin-left: 6px;
 }
 
 .fa-github:hover {
     opacity: 100%;
     transform: rotate(360deg) scale(1.2);
-}
-
-
-
-*{
-    color:black !important;
-    background-color: white !important;
-
 }
