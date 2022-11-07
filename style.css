@@ -8,7 +8,7 @@ body {
     /* background-color: rgb(255, 200, 61); */
     /* background-color: rgb(212, 140, 61); */
 
-    background-color: silver;
+    background-color: grey;
 
     margin: 0px;
     font-family: Inconsolata;
@@ -37,10 +37,38 @@ body {
    background-color: rgb(255, 200, 61);
 }
 
+#versusBox{
+    display: flex;
+    justify-content: center;
+    background-color: silver;
+
+}
+
 #versus {
     display: flex;
     justify-content: space-evenly;
 }
+
+#result {
+    display: flex;
+    justify-content:space-evenly;
+    
+}
+
+#playerPoints{
+    display: flex;
+    flex: 1;
+    background-color:brown;
+    justify-content: center;
+}
+
+#computerPoints{
+    display: flex;
+    flex:1;
+    background-color:blueviolet;
+    justify-content: center;
+}
+
 
 #player,
 #vs,
@@ -60,7 +88,7 @@ body {
 }
 
 #vs {
-    background-color: green;
+    /* background-color: green; */
     color: white;
     flex-direction: column;
 }
@@ -74,6 +102,12 @@ body {
     display: flex;
     justify-content: space-evenly;
 
+}
+
+#playerChoice, #computerChoice{
+    font-size: 64px;
+    
+   
 }
 
 #Rock,
@@ -100,8 +134,8 @@ body {
 #Rock:hover,
 #Paper:hover,
 #Scissors:hover{
-    background-color: grey;
-    background-color: rgb(255, 200, 61);
+    background-color: silver;
+    //background-color: rgb(255, 200, 61);
 
      /* background-color: rgb(212, 140, 61); */
     cursor: pointer;
@@ -140,7 +174,7 @@ body {
     bottom: 0;
 
 
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
 
 
@@ -185,17 +219,25 @@ body {
     bottom: 0;
     width: 100%;
     padding: 10px 0 10px 0;
-    /* background-color: grey; */
+    background-color: silver;
 }
 
 .fa-github {
     color: black;
     opacity: 75%;
     transition: transform 0.3s ease-in-out;
-    margin-left: 4px;
+    margin-left: 6px;
 }
 
 .fa-github:hover {
     opacity: 100%;
     transform: rotate(360deg) scale(1.2);
+}
+
+
+
+*{
+    color:black !important;
+    background-color: white !important;
+
 }

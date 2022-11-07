@@ -14,7 +14,7 @@ function start() {
 
     playerChoice.textContent = '?';
     computerChoice.textContent = '?';
-    versusBox.textContent = 'vs';
+     versusBox.textContent = 'Score 5 points to win';
 }
 playAgain.addEventListener('click', start);
 
