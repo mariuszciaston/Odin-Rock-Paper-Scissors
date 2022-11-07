@@ -101,7 +101,7 @@ buttons.forEach((button) => {
 
         // VICTORY
         if (playerTotal == 5 && computerTotal < 5) {
-            whoWon.textContent = ('You win, congratulations!');
+            whoWon.textContent = ('You won!');
             endOverlay.style.display = 'block';
         }
         if (playerTotal == 5 && computerTotal == 5) {
@@ -109,7 +109,7 @@ buttons.forEach((button) => {
             endOverlay.style.display = 'block';
         }
         if (playerTotal < 5 && computerTotal == 5) {
-            whoWon.textContent = ('You lose, Skynet is coming!');
+            whoWon.textContent = ('You lost...');
             endOverlay.style.display = 'block';
         }
     });

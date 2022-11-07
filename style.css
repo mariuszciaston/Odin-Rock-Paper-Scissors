@@ -1,32 +1,13 @@
-/* *{
-    color:black !important;
-    background-color: white !important;
-    outline: 1px solid black !important;
-} */
-
 html {
     position: relative;
     min-height: 100%;
 }
 
 body {
-    /* background-color: white; */
-    /* background-color: grey; */
-    /* background-color: rgb(255, 200, 61); */
-    /* background-color: rgb(212, 140, 61); */
-    background-color: silver;
-
+    background-color: white;
     margin: 0px;
     font-family: Inconsolata;
     font-size: 16px;
-}
-
-#container {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    /* max-width: 360px; */
-    margin-bottom: 58px;
 }
 
 #title {
@@ -34,8 +15,8 @@ body {
     justify-content: center;
     text-align: center;
     color: black;
-    background-color: grey;
     background-color: rgb(255, 200, 61);
+    border-bottom: 1px solid black;
 }
 
 h1 {
@@ -43,28 +24,40 @@ h1 {
     font-weight: 600;
 }
 
+#main {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: 512px;
+    margin-bottom: 92px;
+}
+
 #infoBox {
     display: flex;
     justify-content: center;
     font-size: 16px;
     font-weight: 600;
-    padding: 24px 0;
-    /* background-color: silver; */
+    margin-top: 32px;
+    margin-bottom: 32px;
 }
-
 
 #versus {
     display: flex;
     justify-content: space-evenly;
-    padding: 32px 0;
-    background-color: white;
+    margin-top: -11px;
+    margin-bottom: 32px;
+    
+    /* padding-top: 32px;
+    padding-bottom: 32px; */
 
+    /* background-color: rgb(245,245,245); */
+    /* border-top: 1px solid black; */
+    /* border-bottom: 1px solid black; */
 }
 
 #playerBox,
 #computerBox {
     width: 100px;
-    /* background-color: green; */
 }
 
 
@@ -77,7 +70,7 @@ h1 {
 #Paper,
 #Scissors {
     /* margin:auto; */
-    padding-bottom: 8px;
+    padding-bottom: 12px;
 }
 
 @keyframes zoom {
@@ -130,7 +123,13 @@ h1 {
 
     /* background-color: grey !important; */
 
-    padding: 32px 0;
+    /* padding: 32px 0; */
+
+
+
+
+    /* background-color: silver; */
+    /* background-color: rgb(255, 200, 61); */
 
 }
 
@@ -155,14 +154,14 @@ h1 {
     align-items: center;
     max-width: 100px;
     border-radius: 10px;
-    /* outline: 1px solid black;  */
-    /* overflow: hidden; */
+    outline: 1px solid black;
+    background-color: silver;
+    overflow: hidden;
 
-    
+    transition: color 0.5s;
     /* margin: 16px; */
     /* background-color: white; */
-    background-color: silver;
-   
+
 
 }
 
@@ -170,37 +169,12 @@ h1 {
 #Paper:hover,
 #Scissors:hover {
     /* background-color: silver; */
-    //background-color: rgb(255, 200, 61);
+    /* background-color: rgb(255, 200, 61); */
 
     /* background-color: rgb(212, 140, 61); */
     cursor: pointer;
     background-color: grey;
 }
-
-
-
-/* #Rock {
-    background-color: cyan;
-}
-
-#Paper {
-    background-color: magenta;
-}
-
-#Scissors {
-    background-color: yellow;
-} */
-
-
-
-
-
-
-
-
-
-
-
 
 #endOverlay {
     z-index: 1;
@@ -210,23 +184,20 @@ h1 {
     top: 0;
     bottom: 0;
 
-
     background-color: rgba(0, 0, 0, 0.5) !important;
     backdrop-filter: blur(4px);
-
-
     /* transition: 2s backdrop-filter linear, 2s -webkit-filter linear; */
-
-    /* filter: grayscale(100%); */
 }
 
 #endBox {
     position: relative;
     background-color: white;
+    font-weight: 600;
     color: black;
 
     width: 240px;
-    height: 120px;
+    height: 160px;
+flex:1;
 
     display: flex;
     flex-direction: column;
@@ -240,13 +211,35 @@ h1 {
     border-radius: 10px;
     /* outline: 1px solid black; */
 
+    /* padding: 32px; */
 }
 
+#whoWon{
+    margin-bottom: 16px
+}
 
+#playAgain {
+    font-weight: inherit;
+    display: flex;
+    /* flex: 1; */
+    /* flex-direction: row; */
+    /* aspect-ratio: 1/1; */
 
+    /* width: 100px; */
+    height: 32px;
+   
 
+    border: 0px solid black;
+    justify-content: center;
+    align-items: center;
 
+    border-radius: 4px;
+    outline: 1px solid black;
+  
 
+    background-color: rgb(255, 200, 61);
+    cursor: pointer;
+}
 
 #footer {
     display: flex;
@@ -257,6 +250,7 @@ h1 {
     width: 100%;
     padding: 10px 0 10px 0;
     background-color: silver;
+    border-top: 1px solid black;
 }
 
 .fa-github {
