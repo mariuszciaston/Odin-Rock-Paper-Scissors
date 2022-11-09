@@ -22,13 +22,20 @@ playAgain.addEventListener('click', start);
 const buttons = document.querySelectorAll('.btn');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-
+        
+        playerChoice.style.animation = "none"
+        playerChoice.offsetHeight;
+        // playerChoice.style.animation = ""
+        playerChoice.style.animation = "zoom 0.5s"
+        
+        
         if (playerTotal < 5 && computerTotal < 5) {
-
+            
             let playerSelection = button.id;
-
+            
             if (playerSelection == "Rock") {
                 playerChoice.textContent = "✊";
+                
             }
             if (playerSelection == "Paper") {
                 playerChoice.textContent = "✋";

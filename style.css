@@ -72,27 +72,38 @@ h1 {
     padding-bottom: 12px;
 }
 
-/* @keyframes zoom {
-    from {
-        transform: scale(1.5);
-    }
-    
-    to {
-        transform: scale(1);
-    }
-}
-
-.zoom {
-    animation-name: zoom;
-    animation-duration: 1s;
-} */
 
 #playerChoice,
 #computerChoice {
     display: flex;
     flex: 1;
     justify-content: center;
+
+    /* opacity: 0;
+    animation-name: zoom;
+    animation-duration: 1s; */
 }
+
+
+@keyframes zoom {
+    from {
+        transform: scale(1.5);
+        /* opacity: 1; */
+    }
+    
+    to {
+        transform: scale(1);
+        /* opacity: 0; */
+    }
+}
+
+.zoom {
+    animation-name: zoom;
+    /* animation-duration: 1s; */
+}
+
+
+
 
 #playerPoints,
 #computerPoints {
@@ -138,8 +149,7 @@ h1 {
     outline: 1px solid black;
     background-color: silver;
     overflow: hidden;
-    
-    /* transition: color 0.5s; */
+    transition: background-color 0.5s;
 }
 
 #Rock:hover,
@@ -156,10 +166,9 @@ h1 {
     right: 0;
     top: 0;
     bottom: 0;
-    
-    /* background-color: rgba(0, 0, 0, 0.25) !important; */
+    padding-left: 16px;
+    padding-right: 16px;
     backdrop-filter: blur(4px);
-    /* transition: 2s backdrop-filter linear, 2s -webkit-filter linear; */
 }
 
 #endBox {
@@ -167,51 +176,41 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     position: relative;
     background-color: white;
     border: 1px solid silver;
     font-weight: 600;
     color: black;
-    
-    flex: 1;
-  
-    max-width: 200px;
-    height: 160px;
-   
-    
+    width: fit-content;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
+    padding: 32px 64px;
 }
 
-/* --------------------------------------------------- */
 #whoWon {
-    margin-top: 32px;
     margin-bottom: 16px;
 }
 
 #playAgain {
     font-weight: inherit;
     display: flex;
-    width: 100px;
     height: 32px;
     justify-content: center;
     align-items: center;
     border-radius: 4px;
     border: 0px solid black;
-    background-color: rgb(255, 200, 61);
+    color: black;
     cursor: pointer;
-
-    /* padding: 32px; */
-    /* flex:1; */
-    margin-bottom: 32px;
+    outline: 1px solid black;
+    background-color: lightgreen;
+    padding: 8px 24px;
+    transition: background-color 0.5s;
 }
 
 #playAgain:hover{
-    /* background-color: rgba(255, 200, 61, 0.75); */
-    outline: 1px solid black;
+    background-color: rgb(255, 200, 61);
 }
 
 #footer {
@@ -223,8 +222,6 @@ h1 {
     width: 100%;
     padding: 10px 0 10px 0;
     background-color: silver;
-
-    /* border-top: 1px solid black; */
 }
 
 .fa-github {
