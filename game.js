@@ -22,20 +22,18 @@ playAgain.addEventListener('click', start);
 const buttons = document.querySelectorAll('.btn');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        
+
         playerChoice.style.animation = "none"
         playerChoice.offsetHeight;
-        // playerChoice.style.animation = ""
-        playerChoice.style.animation = "zoom 0.5s"
-        
-        
+        playerChoice.style.animation = "punch 0.5s"
+
         if (playerTotal < 5 && computerTotal < 5) {
-            
+
             let playerSelection = button.id;
-            
+
             if (playerSelection == "Rock") {
                 playerChoice.textContent = "✊";
-                
+
             }
             if (playerSelection == "Paper") {
                 playerChoice.textContent = "✋";
@@ -51,6 +49,10 @@ buttons.forEach((button) => {
             function computerPlay() {
                 return options[Math.floor(Math.random() * options.length)];
             };
+
+            computerChoice.style.animation = "none"
+            computerChoice.offsetHeight;
+            computerChoice.style.animation = "fadein 0.1s";
 
             if (computerSelection == "Rock") {
                 computerChoice.textContent = "✊";
@@ -107,17 +109,31 @@ buttons.forEach((button) => {
         computerPoints.textContent = ('Computer: ' + computerTotal);
 
         // VICTORY
+        whoWon.textContent = "";
+
         if (playerTotal == 5 && computerTotal < 5) {
             whoWon.textContent = ('You won!');
-            endOverlay.style.display = 'block';
         }
         if (playerTotal == 5 && computerTotal == 5) {
             whoWon.textContent = ('Match draw.');
-            endOverlay.style.display = 'block';
         }
         if (playerTotal < 5 && computerTotal == 5) {
             whoWon.textContent = ('You lost...');
+        }
+
+        if (whoWon.textContent) {
             endOverlay.style.display = 'block';
+            playerChoice.style.animation = "none"
+            computerChoice.style.animation = "none"
+            endOverlay.style.animation = "appear 0.1s"
+            endBox.style.animation = "fadein 0.1s"
+        };
+
+        // close EndOverlay on click
+        if (endOverlay.style.display) {
+            endOverlay.addEventListener('click', () => {
+                endOverlay.style.display = 'none';
+            });
         }
     });
 });
