@@ -67,7 +67,7 @@ h1 {
 #Rock,
 #Paper,
 #Scissors {
-    /* padding-bottom: 12px;  */
+    padding-bottom: 12px; 
     /* adds space to emoji on windows os */
 }
 
