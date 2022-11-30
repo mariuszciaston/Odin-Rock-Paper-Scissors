@@ -1,5 +1,5 @@
 # Rock Paper Scissors
 
-Game created with HTML, CSS and JS.
+Rock Paper Scissors game created with HTML, CSS and JS.
 
-[Live Demo](https://mariuszciaston.github.io/Odin-Rock-Paper-Scissors/) :point_left:
+[Live Demo](https://mariuszciaston.github.io/Rock-Paper-Scissors/) :point_left:
