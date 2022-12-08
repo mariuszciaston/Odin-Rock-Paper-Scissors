@@ -1,10 +1,19 @@
+html,
+body,
+#wrapper,
+#main {
+    height: 100%;
+}
+
 html {
     position: relative;
     min-height: 100%;
 }
 
 body {
-    background-color: white;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(224, 224, 224);
     margin: 0px;
     font-family: Inconsolata;
     font-size: 16px;
@@ -26,12 +35,12 @@ h1 {
 #main {
     display: flex;
     flex-direction: column;
+    background-color: white;
     margin: auto;
-    max-width: 480px;
-    margin-bottom: 92px;
-
-    padding-left: 16px;
-    padding-right: 16px;
+    width: 100%;
+    max-width: 544px;
+    padding-bottom: 32px;
+    justify-content: center;
 }
 
 #infoBox {
@@ -49,12 +58,16 @@ h1 {
     margin-bottom: 32px;
     background-color: white;
     padding-top: 32px;
-
     padding-bottom: 32px;
     padding-bottom: 44px;
-
     border: 1px solid silver;
     border-radius: 10px;
+}
+
+#versus,
+#controls {
+    margin-left: 32px;
+    margin-right: 32px;
 }
 
 #playerBox,
@@ -67,7 +80,7 @@ h1 {
 #Rock,
 #Paper,
 #Scissors {
-    padding-bottom: 12px; 
+    padding-bottom: 12px;
     /* adds space to emoji on windows os */
 }
 
@@ -224,11 +237,8 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 10px 0 10px 0;
     background-color: silver;
+    padding: 10px 0 10px 0;
 }
 
 .fa-github {
@@ -240,4 +250,22 @@ h1 {
 .fa-github:hover {
     opacity: 100%;
     transform: rotate(360deg) scale(1.2);
+}
+
+@media only screen and (max-height: 580px) {
+
+    html,
+    body,
+    .main {
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 512px) {
+
+    #versus,
+    #controls {
+        margin-left: 16px;
+        margin-right: 16px;
+    }
 }
