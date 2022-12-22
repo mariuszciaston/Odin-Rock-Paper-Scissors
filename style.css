@@ -1,3 +1,17 @@
+:root {
+    --black: black;
+    --foreground: white;
+    --background: rgb(224, 224, 224);
+    --yellow: rgb(255, 200, 61);
+    --playerPoints: blue;
+    --computerPoints: red;
+    --silver: silver;
+    --grey: grey;
+    --playAgainButton: lightgreen;
+}
+
+
+
 html,
 body,
 #wrapper,
@@ -13,18 +27,18 @@ html {
 body {
     display: flex;
     flex-direction: column;
-    background-color: rgb(224, 224, 224);
+    background-color: var(--background);
     margin: 0px;
     font-family: Inconsolata;
     font-size: 16px;
+    color: var(--black);
 }
 
 #title {
     display: flex;
     justify-content: center;
     text-align: center;
-    color: black;
-    background-color: rgb(255, 200, 61);
+    background-color: var(--yellow);
 }
 
 h1 {
@@ -35,11 +49,11 @@ h1 {
 #main {
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: var(--foreground);
     margin: auto;
     width: 100%;
     max-width: 544px;
-    padding-bottom: 32px;
+    padding-bottom: 64px;
     justify-content: center;
 }
 
@@ -56,11 +70,11 @@ h1 {
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 32px;
-    background-color: white;
+    background-color: var(--foreground);
     padding-top: 32px;
     padding-bottom: 32px;
     padding-bottom: 44px;
-    border: 1px solid silver;
+    border: 1px solid var(--silver);
     border-radius: 10px;
 }
 
@@ -113,13 +127,13 @@ h1 {
 
 @keyframes appear {
     from {
-        backdrop-filter: blur(0px);
         -webkit-backdrop-filter: blur(0px);
+        backdrop-filter: blur(0px);
     }
 
     to {
-        backdrop-filter: blur(3px);
         -webkit-backdrop-filter: blur(3px);
+        backdrop-filter: blur(3px);
     }
 }
 
@@ -133,11 +147,11 @@ h1 {
 }
 
 #playerPoints {
-    color: blue;
+    color: var(--playerPoints);
 }
 
 #computerPoints {
-    color: red;
+    color: var(--computerPoints);
 }
 
 #controls {
@@ -160,21 +174,21 @@ h1 {
     flex: 1;
     justify-content: center;
     align-items: center;
-    aspect-ratio: 1/1;
-    border: 0px solid black;
+    border: 0px solid var(--black);
     max-width: 100px;
     border-radius: 10px;
-    outline: 1px solid black;
-    background-color: silver;
+    outline: 1px solid var(--black);
+    background-color: var(--silver);
     overflow: hidden;
     transition: background-color 0.5s;
+    aspect-ratio: 1/1;
 }
 
 #Rock:hover,
 #Paper:hover,
 #Scissors:hover {
     cursor: pointer;
-    background-color: grey;
+    background-color: var(--grey);
 }
 
 #endOverlay {
@@ -186,8 +200,8 @@ h1 {
     bottom: 0;
     padding-left: 16px;
     padding-right: 16px;
-    backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
 }
 
 #endBox {
@@ -196,10 +210,9 @@ h1 {
     justify-content: center;
     align-items: center;
     position: relative;
-    background-color: white;
-    border: 1px solid silver;
+    background-color: var(--foreground);
+    border: 1px solid var(--silver);
     font-weight: 600;
-    color: black;
     width: 128px;
     width: fit-content;
     top: 50%;
@@ -220,29 +233,29 @@ h1 {
     justify-content: center;
     align-items: center;
     border-radius: 4px;
-    border: 0px solid black;
-    color: black;
+    border: 0px solid var(--black);
+    color: inherit;
     cursor: pointer;
-    outline: 1px solid black;
-    background-color: lightgreen;
+    outline: 1px solid var(--black);
+    background-color: var(--playAgainButton);
     padding: 8px 24px;
     transition: background-color 0.5s;
 }
 
 #playAgain:hover {
-    background-color: rgb(255, 200, 61);
+    background-color: var(--yellow);
 }
 
 #footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: silver;
+    background-color: var(--silver);
     padding: 10px 0 10px 0;
 }
 
 .fa-github {
-    color: black;
+    color: var(--black);
     opacity: 75%;
     transition: transform 0.3s ease-in-out;
 }
