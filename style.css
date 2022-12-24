@@ -102,6 +102,10 @@ h1 {
     justify-content: center;
 }
 
+.showPunch {
+    animation: punch 0.5s;
+}
+
 @keyframes punch {
     from {
         transform: scale(1.5);
@@ -111,6 +115,123 @@ h1 {
         transform: scale(1);
     }
 }
+
+.showGrow {
+    animation: grow 0.5s;
+}
+
+@keyframes grow {
+    from {
+        transform: scale(0.5);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+#playerPoints,
+#computerPoints {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+#playerPoints {
+    color: var(--playerPoints);
+}
+
+#computerPoints {
+    color: var(--computerPoints);
+}
+
+#controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+#playerChoice,
+#computerChoice,
+#Rock,
+#Paper,
+#Scissors {
+    font-size: 64px;
+}
+
+#Rock,
+#Paper,
+#Scissors {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    border: 0px solid var(--black);
+    max-width: 100px;
+    border-radius: 10px;
+    outline: 1px solid var(--black);
+    background-color: var(--silver);
+    transition: background-color 0.5s;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+
+}
+
+#Rock:hover,
+#Paper:hover,
+#Scissors:hover {
+    cursor: pointer;
+    background-color: var(--grey);
+}
+
+#endOverlay {
+    display: none;
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.showOverlay {
+    display: block !important;
+    animation: appear 1s forwards;
+}
+
+.hideOverlay {
+    display: block !important;
+    animation: disappear 1s forwards;
+}
+
+#endBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: var(--foreground);
+    border: 1px solid var(--silver);
+    width: 128px;
+    width: fit-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    padding: 32px 64px;
+}
+
+.showFade {
+    animation: fadein 1s forwards;
+}
+
+.hideFade {
+    animation: fadeout 1s forwards;
+}
+
+
 
 @keyframes fadein {
     from {
@@ -158,86 +279,6 @@ h1 {
         backdrop-filter: blur(0px);
         visibility: hidden;
     }
-}
-
-#playerPoints,
-#computerPoints {
-    display: flex;
-    flex: 1;
-    justify-content: center;
-}
-
-#playerPoints {
-    color: var(--playerPoints);
-}
-
-#computerPoints {
-    color: var(--computerPoints);
-}
-
-#controls {
-    display: flex;
-    justify-content: space-between;
-}
-
-#playerChoice,
-#computerChoice,
-#Rock,
-#Paper,
-#Scissors {
-    font-size: 64px;
-}
-
-#Rock,
-#Paper,
-#Scissors {
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-    border: 0px solid var(--black);
-    max-width: 100px;
-    border-radius: 10px;
-    outline: 1px solid var(--black);
-    background-color: var(--silver);
-    overflow: hidden;
-    transition: background-color 0.5s;
-    aspect-ratio: 1/1;
-}
-
-#Rock:hover,
-#Paper:hover,
-#Scissors:hover {
-    cursor: pointer;
-    background-color: var(--grey);
-}
-
-#endOverlay {
-    z-index: 1;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    padding-left: 16px;
-    padding-right: 16px;
-}
-
-#endBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    background-color: var(--foreground);
-    border: 1px solid var(--silver);
-    width: 128px;
-    width: fit-content;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 10px;
-    padding: 32px 64px;
 }
 
 #whoWon {
