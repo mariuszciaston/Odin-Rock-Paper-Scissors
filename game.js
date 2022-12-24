@@ -1,5 +1,4 @@
-/* eslint-disable linebreak-style */
-
+// VARIABLES
 let playerScore = 0;
 let computerScore = 0;
 let playerTotal = 0;
@@ -7,6 +6,7 @@ let computerTotal = 0;
 let playerSelection = '';
 let computerSelection = '';
 
+// SELECTORS
 const buttons = document.querySelectorAll('.btn');
 const infoBox = document.querySelector('#infoBox');
 const playerChoice = document.querySelector('#playerChoice');
@@ -18,12 +18,12 @@ const endBox = document.querySelector('#endBox');
 const whoWon = document.querySelector('#whoWon');
 const playAgain = document.querySelector('#playAgain');
 
+// CONTENT
 infoBox.textContent = 'Score 5 points to win';
 playerChoice.textContent = '❔';
 computerChoice.textContent = '❔';
 playerPoints.textContent = (`Player: ${playerTotal}`);
 computerPoints.textContent = (`Computer: ${computerTotal}`);
-endOverlay.style.display = 'none';
 
 // PLAYER
 function playerPlay(e) {
@@ -38,9 +38,12 @@ function playerPlay(e) {
   if (playerSelection === 'Scissors') {
     playerChoice.textContent = '✌️';
   }
-  playerChoice.style.animation = 'none';
-  playerChoice.offsetHeight;
-  playerChoice.style.animation = 'punch 0.5s';
+  playerChoice.classList.toggle('showPunch');
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      playerChoice.classList.add('showPunch');
+    });
+  });
 }
 
 // COMPUTER
@@ -57,10 +60,15 @@ function computerPlay() {
   if (computerSelection === 'Scissors') {
     computerChoice.textContent = '✌️';
   }
-  computerChoice.style.animation = 'none';
-  computerChoice.offsetHeight;
-  computerChoice.style.animation = 'fadein 0.1s';
+  computerChoice.classList.toggle('showGrow');
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      computerChoice.classList.add('showGrow');
+    });
+  });
+  computerChoice.offsetHeight; // fix animation restart
 }
+
 // ROUND
 function playRound() {
   if (playerSelection === computerSelection) {
@@ -115,20 +123,23 @@ function gameOver() {
   }
 }
 
+// OVERLAY FADE
 function overlayFade() {
   if (whoWon.textContent) {
-    endOverlay.style.display = 'block';
-    playerChoice.style.animation = 'none';
-    computerChoice.style.animation = 'none';
-    endOverlay.style.animation = 'appear 1s forwards';
-    endBox.style.animation = 'fadein 1s forwards';
+    endOverlay.classList.remove('hideOverlay');
+    endOverlay.classList.add('showOverlay');
+    endBox.classList.remove('hideFade');
+    endBox.classList.add('showFade');
   }
   endOverlay.addEventListener('click', () => {
-    endBox.style.animation = 'fadeout 1s forwards';
-    endOverlay.style.animation = 'disappear 1s forwards';
+    endBox.classList.remove('showFade');
+    endBox.classList.add('hideFade');
+    endOverlay.classList.remove('showOverlay');
+    endOverlay.classList.add('hideOverlay');
   });
 }
 
+// RESTART
 function restart() {
   playerScore = 0;
   computerScore = 0;
@@ -144,6 +155,7 @@ function restart() {
   computerPoints.textContent = (`Computer: ${computerTotal}`);
 }
 
+// RUN
 buttons.forEach((button) => {
   button.addEventListener('click', (e) => {
     if (playerTotal < 5 && computerTotal < 5) {
