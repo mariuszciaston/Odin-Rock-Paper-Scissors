@@ -187,16 +187,19 @@ h1 {
     bottom: 0;
     padding-left: 16px;
     padding-right: 16px;
+
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
 }
 
 .showOverlay {
     display: block !important;
-    animation: appear 1s forwards;
+    animation: fadein 0.5s forwards;
 }
 
 .hideOverlay {
     display: block !important;
-    animation: disappear 1s forwards;
+    animation: fadeout 0.5s forwards;
 }
 
 #endBox {
@@ -217,58 +220,34 @@ h1 {
 }
 
 .showFade {
-    animation: fadein 1s forwards;
+    animation: fadein 0.5s forwards;
 }
 
 .hideFade {
-    animation: fadeout 1s forwards;
+    animation: fadeout 0.5s forwards;
 }
 
 @keyframes fadein {
     from {
+        visibility: hidden;
         opacity: 0;
     }
 
     to {
+        visibility: visible;
         opacity: 1;
     }
 }
 
 @keyframes fadeout {
     from {
+        visibility: visible;
         opacity: 1;
     }
 
     to {
+        visibility: hidden;
         opacity: 0;
-    }
-}
-
-@keyframes appear {
-    from {
-        -webkit-backdrop-filter: blur(0px);
-        backdrop-filter: blur(0px);
-        visibility: hidden;
-    }
-
-    to {
-        -webkit-backdrop-filter: blur(3px);
-        backdrop-filter: blur(3px);
-        visibility: visible;
-    }
-}
-
-@keyframes disappear {
-    from {
-        -webkit-backdrop-filter: blur(3px);
-        backdrop-filter: blur(3px);
-        visibility: visible;
-    }
-
-    to {
-        -webkit-backdrop-filter: blur(0px);
-        backdrop-filter: blur(0px);
-        visibility: hidden;
     }
 }
 
@@ -317,7 +296,6 @@ h1 {
 }
 
 @media only screen and (max-height: 612px) {
-
     html,
     body,
     .main {
@@ -326,7 +304,6 @@ h1 {
 }
 
 @media only screen and (max-width: 512px) {
-
     #versus,
     #controls {
         margin-left: 16px;
