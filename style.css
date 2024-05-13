@@ -1,90 +1,94 @@
 :root {
-    --black: black;
-    --foreground: white;
-    --background: rgb(224, 224, 224);
-    --stripe: rgb(255, 200, 61);
-    --playerPoints: hsl(240, 100%, 50%);
-    --computerPoints: hsl(0, 100%, 50%);
-    --silver: silver;
-    --grey: grey;
-    --playAgainButton: hsl(120, 50%, 50%);
+	--black: black;
+	--foreground: white;
+	--background: rgb(224, 224, 224);
+	--stripe: rgb(255, 200, 61);
+	--playerPoints: hsl(240, 100%, 50%);
+	--computerPoints: hsl(0, 100%, 50%);
+	--silver: silver;
+	--grey: grey;
+	--playAgainButton: hsl(120, 50%, 50%);
 }
 
 html,
 body,
 #wrapper,
 #main {
-    height: 100%;
+	height: 100%;
 }
 
 html {
-    position: relative;
-    min-height: 100%;
+	position: relative;
+	min-height: 100%;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--background);
-    margin: 0px;
-    font-family: Inconsolata;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--black);
-    touch-action: manipulation;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--background);
+	margin: 0px;
+	font-family: Inconsolata;
+	font-size: 16px;
+	font-weight: 600;
+	color: var(--black);
+	touch-action: manipulation;
 }
 
 #title {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    background-color: var(--stripe);
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	background-color: var(--stripe);
+	width: 100%;
+	max-width: 544px;
+	justify-content: center;
+	margin: auto;
 }
 
 h1 {
-    font-size: 32px;
-    font-weight: inherit;
+	font-size: 32px;
+	font-weight: inherit;
 }
 
 #main {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--foreground);
-    margin: auto;
-    width: 100%;
-    max-width: 544px;
-    padding-bottom: 64px;
-    justify-content: center;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--foreground);
+	margin: auto;
+	width: 100%;
+	max-width: 544px;
+	padding-bottom: 64px;
+	justify-content: center;
 }
 
 #infoBox {
-    display: flex;
-    justify-content: center;
-    margin-top: 32px;
-    margin-bottom: 32px;
+	display: flex;
+	justify-content: center;
+	margin-top: 32px;
+	margin-bottom: 32px;
 }
 
 #versus {
-    display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 32px;
-    background-color: var(--foreground);
-    padding-top: 32px;
-    padding-bottom: 32px;
-    padding-bottom: 44px;
-    border: 1px solid var(--silver);
-    border-radius: 10px;
+	display: flex;
+	justify-content: space-evenly;
+	margin-bottom: 32px;
+	background-color: var(--foreground);
+	padding-top: 32px;
+	padding-bottom: 32px;
+	padding-bottom: 44px;
+	border: 1px solid var(--silver);
+	border-radius: 10px;
 }
 
 #versus,
 #controls {
-    margin-left: 32px;
-    margin-right: 32px;
+	margin-left: 32px;
+	margin-right: 32px;
 }
 
 #playerBox,
 #computerBox {
-    width: 100px;
+	width: 100px;
 }
 
 #playerChoice,
@@ -92,221 +96,223 @@ h1 {
 #Rock,
 #Paper,
 #Scissors {
-    padding: 0px;
-    padding-bottom: 12px;
-    /* adds space to emoji on windows os */
-    font-size: 64px;
+	padding: 0px;
+	padding-bottom: 12px;
+	/* adds space to emoji on windows os */
+	font-size: 64px;
 }
 
 #playerChoice,
 #computerChoice {
-    display: flex;
-    flex: 1;
-    justify-content: center;
+	display: flex;
+	flex: 1;
+	justify-content: center;
 }
 
 .showPunch {
-    animation: punch 0.5s;
+	animation: punch 0.5s;
 }
 
 @keyframes punch {
-    from {
-        transform: scale(1.5);
-    }
+	from {
+		transform: scale(1.5);
+	}
 
-    to {
-        transform: scale(1);
-    }
+	to {
+		transform: scale(1);
+	}
 }
 
 .showGrow {
-    animation: grow 0.5s;
+	animation: grow 0.5s;
 }
 
 @keyframes grow {
-    from {
-        transform: scale(0.5);
-    }
+	from {
+		transform: scale(0.5);
+	}
 
-    to {
-        transform: scale(1);
-    }
+	to {
+		transform: scale(1);
+	}
 }
 
 #playerPoints,
 #computerPoints {
-    display: flex;
-    flex: 1;
-    justify-content: center;
+	display: flex;
+	flex: 1;
+	justify-content: center;
 }
 
 #playerPoints {
-    color: var(--playerPoints);
+	color: var(--playerPoints);
 }
 
 #computerPoints {
-    color: var(--computerPoints);
+	color: var(--computerPoints);
 }
 
 #controls {
-    display: flex;
-    justify-content: space-between;
-    gap: 8px;
+	display: flex;
+	justify-content: space-between;
+	gap: 8px;
 }
 
 #Rock,
 #Paper,
 #Scissors {
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-    max-width: 100px;
-    border: 1px solid var(--black);
-    border-radius: 10px;
-    background-color: var(--silver);
-    transition: background-color 0.5s;
-    overflow: hidden;
-    aspect-ratio: 1/1;
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+	max-width: 100px;
+	border: 0px solid var(--black);
+	border-radius: 10px;
+	background-color: hsl(0, 0%, 95%);
+	background: radial-gradient(circle, hsla(0, 0%, 100%, 0) 0%, hsla(0, 0%, 95%, 1) 100%);
+	transition: background-color 0.5s;
+	overflow: hidden;
+	aspect-ratio: 1/1;
 }
 
 #Rock:hover,
 #Paper:hover,
 #Scissors:hover {
-    cursor: pointer;
-    background-color: var(--grey);
+	cursor: pointer;
+	border: 1px solid var(--black);
 }
 
 #endOverlay {
-    display: none;
-    z-index: 1;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    padding-left: 16px;
-    padding-right: 16px;
+	display: none;
+	z-index: 1;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	padding-left: 16px;
+	padding-right: 16px;
 
-    -webkit-backdrop-filter: blur(3px);
-    backdrop-filter: blur(3px);
+	-webkit-backdrop-filter: blur(3px);
+	backdrop-filter: blur(3px);
 }
 
 .showOverlay {
-    display: block !important;
-    animation: fadein 0.5s forwards;
+	display: block !important;
+	animation: fadein 0.5s forwards;
 }
 
 .hideOverlay {
-    display: block !important;
-    animation: fadeout 0.5s forwards;
+	display: block !important;
+	animation: fadeout 0.5s forwards;
 }
 
 #endBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    background-color: var(--foreground);
-    border: 1px solid var(--silver);
-    width: 128px;
-    width: fit-content;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 10px;
-    padding: 32px 64px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	background-color: var(--foreground);
+	border: 1px solid var(--silver);
+	width: 128px;
+	width: fit-content;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 10px;
+	padding: 32px 64px;
 }
 
 .showFade {
-    animation: fadein 0.5s forwards;
+	animation: fadein 0.5s forwards;
 }
 
 .hideFade {
-    animation: fadeout 0.5s forwards;
+	animation: fadeout 0.5s forwards;
 }
 
 @keyframes fadein {
-    from {
-        visibility: hidden;
-        opacity: 0;
-    }
+	from {
+		visibility: hidden;
+		opacity: 0;
+	}
 
-    to {
-        visibility: visible;
-        opacity: 1;
-    }
+	to {
+		visibility: visible;
+		opacity: 1;
+	}
 }
 
 @keyframes fadeout {
-    from {
-        visibility: visible;
-        opacity: 1;
-    }
+	from {
+		visibility: visible;
+		opacity: 1;
+	}
 
-    to {
-        visibility: hidden;
-        opacity: 0;
-    }
+	to {
+		visibility: hidden;
+		opacity: 0;
+	}
 }
 
 #whoWon {
-    margin-bottom: 16px;
+	margin-bottom: 16px;
 }
 
 #playAgain {
-    font-weight: 400;
-    font-family: inherit;
-    font-size: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 4px;
-    border: 1px solid var(--playAgainButton);
-    color: var(--playAgainButton);
-    cursor: pointer;
-    background-color: var(--foreground);
-    padding: 8px 24px;
-    transition: color 0.5s;
+	font-weight: 400;
+	font-family: inherit;
+	font-size: 24px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 4px;
+	border: 1px solid var(--black);
+	color: var(--black);
+	cursor: pointer;
+	background-color: var(--foreground);
+	padding: 8px 24px;
 }
 
 #playAgain:hover {
-    color: var(--black);
+	color: var(--playAgainButton);
+	border: 1px solid var(--playAgainButton);
 }
 
 #footer {
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--silver);
-    padding: 10px 0 10px 0;
+	font-weight: 400;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--background);
+
+	padding: 10px 0 10px 0;
 }
 
 .fa-github {
-    color: var(--black);
-    opacity: 75%;
-    transition: transform 0.3s ease-in-out;
+	color: var(--black);
+	opacity: 75%;
+	transition: transform 0.3s ease-in-out;
 }
 
 .fa-github:hover {
-    opacity: 100%;
-    transform: rotate(360deg) scale(1.2);
+	opacity: 100%;
+	transform: rotate(360deg) scale(1.2);
 }
 
 @media only screen and (max-height: 612px) {
-    html,
-    body,
-    .main {
-        height: auto;
-    }
+	html,
+	body,
+	.main {
+		height: auto;
+	}
 }
 
 @media only screen and (max-width: 512px) {
-    #versus,
-    #controls {
-        margin-left: 16px;
-        margin-right: 16px;
-    }
+	#versus,
+	#controls {
+		margin-left: 16px;
+		margin-right: 16px;
+	}
 }
