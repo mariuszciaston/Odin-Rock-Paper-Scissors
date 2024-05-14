@@ -25,10 +25,10 @@ html {
 body {
 	display: flex;
 	flex-direction: column;
-	background-color: var(--background);
+	/* background-color: var(--background); */
 	margin: 0px;
 	font-family: Inconsolata;
-	font-size: 16px;
+	font-size: 24px;
 	font-weight: 600;
 	color: var(--black);
 	touch-action: manipulation;
@@ -40,7 +40,7 @@ body {
 	text-align: center;
 	background-color: var(--stripe);
 	width: 100%;
-	max-width: 544px;
+	/* max-width: 544px; */
 	justify-content: center;
 	margin: auto;
 }
@@ -80,15 +80,8 @@ h1 {
 	border-radius: 10px;
 }
 
-#versus,
-#controls {
-	margin-left: 32px;
-	margin-right: 32px;
-}
-
 #playerBox,
 #computerBox {
-	width: 100px;
 }
 
 #playerChoice,
@@ -97,9 +90,9 @@ h1 {
 #Paper,
 #Scissors {
 	padding: 0px;
-	padding-bottom: 12px;
+	/* padding-bottom: 12px; */
 	/* adds space to emoji on windows os */
-	font-size: 64px;
+	font-size: 96px;
 }
 
 #playerChoice,
@@ -142,6 +135,7 @@ h1 {
 	display: flex;
 	flex: 1;
 	justify-content: center;
+	padding-top: 16px;
 }
 
 #playerPoints {
@@ -165,21 +159,23 @@ h1 {
 	flex: 1;
 	justify-content: center;
 	align-items: center;
-	max-width: 100px;
+	/* max-width: 100px; */
 	border: 0px solid var(--black);
-	border-radius: 10px;
-	background-color: hsl(0, 0%, 95%);
-	background: radial-gradient(circle, hsla(0, 0%, 100%, 0) 0%, hsla(0, 0%, 95%, 1) 100%);
-	transition: background-color 0.5s;
+	/* border-radius: 10px; */
+	/* background-color: hsl(0, 0%, 95%);
+	background: radial-gradient(circle, hsla(0, 0%, 100%, 0) 0%, hsla(0, 0%, 95%, 1) 100%); */
+	/* transition: background-color 0.5s; */
 	overflow: hidden;
 	aspect-ratio: 1/1;
+
+	background-color: unset;
 }
 
 #Rock:hover,
 #Paper:hover,
 #Scissors:hover {
 	cursor: pointer;
-	border: 1px solid var(--black);
+	/* border: 1px solid var(--black); */
 }
 
 #endOverlay {
@@ -281,19 +277,19 @@ h1 {
 }
 
 #footer {
+	font-size: 16px;
 	font-weight: 400;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	background-color: var(--background);
-
 	padding: 1rem 0 1rem 0;
 }
 
 .fa-github {
 	color: var(--black);
 	opacity: 75%;
-	transition: transform 0.3s ease-in-out;
+	transition: transform 0.5s ease-in-out;
 }
 
 .fa-github:hover {
@@ -309,10 +305,8 @@ h1 {
 	}
 }
 
-@media only screen and (max-width: 512px) {
-	#versus,
-	#controls {
-		margin-left: 16px;
-		margin-right: 16px;
+@media only screen and (min-width: 768px) {
+	h1 {
+		font-size: 48px;
 	}
 }
